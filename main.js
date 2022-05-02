@@ -1,4 +1,4 @@
-const API_URL = "https://api.thedogapi.com/v1/images/search?limit=3";
+const API_URL = "https://api.thedogapi.com/v1/images/search?limit=3&api_key=9f1d3cfc-36f4-4461-9275-a27626d6fdec";
 const images = document.getElementsByTagName("img");
 const titles = document.getElementsByClassName("card__title");
 const weights = document.getElementsByClassName("weight");
