@@ -33,7 +33,7 @@ h2 {
 }
 
 .card {
-  width: 550px;
+  width: 450px;
   margin: 0 auto;
   background-color: #f2f2f2;
   box-shadow: 0 40px 60px -6px black;
@@ -56,11 +56,12 @@ h2 {
 
 .card__img {
   width: 100%;
-  height: 500px;
+  height: 450px;
   object-fit: cover;
 }
 
-.fav__button {
+.fav__button,
+.fav__buttonDelete {
   position: absolute;
   bottom: 20px;
   right: 20px;
@@ -80,7 +81,38 @@ h2 {
 
 .fav__button:hover i {
   color: #DB3A34;
-  font-size: 22pxx;
+}
+
+.fav__buttonDelete i {
+  transition: 0.5s;
+  color: #DB3A34;
+  font-size: 20px;
+}
+
+.fav__buttonDelete:hover i {
+  color: #000;
+}
+
+.favDogs {
+  flex-wrap: wrap;
+  width: 1100px;
+  gap: 30px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.favCard {
+  width: 30vh;
+  height: 30vh;
+  margin: 0 auto;
+  box-shadow: 0 40px 60px -6px black;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.favCard div img {
+  height: 30vh;
+  object-fit: cover;
 }
 
 .card__info {
