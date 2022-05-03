@@ -25,7 +25,7 @@
         <p class="card__title" id="title"></p>
         <div class="card__img--container">
           <img id="img1" class="card__img" alt="Foto perrito aleatorio" />
-          <button class="fav__button" onclick="saveFavDogs()"><i class="fa-solid fa-heart"></i></button>
+          <button class="fav__button"><i class="fa-solid fa-heart"></i></button>
         </div>
         <div class="card__info">
           <p class="weight" id="weight"></p>
@@ -37,7 +37,7 @@
         <p class="card__title" id="title"></p>
         <div class="card__img--container">
           <img id="img1" class="card__img" alt="Foto perrito aleatorio" />
-          <button class="fav__button" onclick="saveFavDogs()"><i class="fa-solid fa-heart"></i></button>
+          <button class="fav__button"><i class="fa-solid fa-heart"></i></button>
         </div>
         <div class="card__info">
           <p class="weight" id="weight"></p>
@@ -48,20 +48,9 @@
     </section>
     <button id="moreDogs">¡Ver más perros!</button>
 
-    <section class="favDogs">
-      <h2>Favorite Doggies</h2>
-      <article class="card">
-        <p class="card__title" id="title"></p>
-        <div class="card__img--container">
-          <img id="img1" class="card__img" alt="Foto perrito aleatorio" />
-          <button class="fav__button" onclick="saveFavDogs()"><i class="fa-solid fa-heart"></i></button>
-        </div>
-        <div class="card__info">
-          <p class="weight" id="weight"></p>
-          <p class="height" id="height"></p>
-          <p class="life-span" id="lifeSpan"></p>
-        </div>
-      </article>
+    <h2>Favorite Doggies</h2>
+    <section id="favDogs" class="favDogs cards__container">
+      
     </section>
 
     <script src="./main.js"></script>
