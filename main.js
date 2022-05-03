@@ -7,6 +7,7 @@ const weights = document.getElementsByClassName("weight");
 const heights = document.getElementsByClassName("height");
 const lifeSpan = document.getElementsByClassName("life-span");
 const button = document.getElementById("moreDogs");
+const favButton = document.getElementsByClassName("fav__button");
 
 // Con promesas
 function getDogs() {
@@ -40,6 +41,7 @@ async function getRandomDogs() {
     console.log(res);
     if (res.status !== 200) throw new Error(`Error de peticiónHTTP en Random: $(status)`);
     const data = await res.json();
+    console.log(data);
     for (let i = 0; i < data.length; i++) {
       images[i].src = data[i].url;
       if (data[i].breeds[0]) {
@@ -66,6 +68,7 @@ async function getFavDogs() {
   try {
     const res = await fetch(API_URL_FAV);
     const data = await res.json();
+    console.log("Fav Dogs");
     console.log(data);
     if (res.status !== 200) throw new Error(`Error de petición HTTP en Favoritos: ${res.status} ${data.message}`);
     // for (let i = 0; i < data.length; i++) {
@@ -86,6 +89,25 @@ async function getFavDogs() {
     // }
   } catch (error) {
     console.log(error.message);
+    spanError.innerText = `${error.message}`;
+  }
+}
+
+async function saveFavDogs() {
+  try {
+    const res = await fetch(API_URL_FAV, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        image_id: "lcsQYiWMN"
+      }),
+    });
+    const data = await res.json();
+    console.log(res);
+    if (res.status !== 200) throw new Error(`Error de petición HTTP en Favoritos: ${res.status} ${data.message}`);
+  } catch (error) {
     spanError.innerText = `${error.message}`;
   }
 }
