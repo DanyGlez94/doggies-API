@@ -22,6 +22,12 @@ h2 {
   margin: 0 0 20px 0;
 }
 
+#error {
+  color: #eee;
+  display: block;
+  margin-bottom: 20px;
+}
+
 .cards__container {
   display: flex;
 }
