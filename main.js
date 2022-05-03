@@ -4,7 +4,7 @@ const titles = document.getElementsByClassName("card__title");
 const weights = document.getElementsByClassName("weight");
 const heights = document.getElementsByClassName("height");
 const lifeSpan = document.getElementsByClassName("life-span");
-const button = document.getElementById("button");
+const button = document.getElementById("moreDogs");
 
 // Con promesas
 function getDogs() {

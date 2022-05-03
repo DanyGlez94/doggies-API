@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perritos aleatorios</title>
+    <script src="https://kit.fontawesome.com/1f05addf06.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,37 +17,64 @@
     />
   </head>
   <body>
-    <h1>Perritos aleatorios</h1>
-    <div class="cards__container">
-      <section class="card">
+    <h1>Doggies App</h1>
+
+    <section class="cards__container">
+      <article class="card">
         <p class="card__title" id="title"></p>
-        <img id="img1" class="card__img" alt="Foto perrito aleatorio" />
+        <div class="card__img--container">
+          <img id="img1" class="card__img" alt="Foto perrito aleatorio" />
+          <button class="fav__button"><i class="fa-solid fa-heart"></i></button>
+        </div>
         <div class="card__info">
           <p class="weight" id="weight"></p>
           <p class="height" id="height"></p>
           <p class="life-span" id="lifeSpan"></p>
         </div>
-      </section>
-      <section class="card">
+      </article>
+      <article class="card">
         <p class="card__title" id="title"></p>
-        <img id="img2" class="card__img" alt="Foto perrito aleatorio" />
+        <div class="card__img--container">
+          <img id="img1" class="card__img" alt="Foto perrito aleatorio" />
+          <button class="fav__button"><i class="fa-solid fa-heart"></i></button>
+        </div>
         <div class="card__info">
           <p class="weight" id="weight"></p>
           <p class="height" id="height"></p>
           <p class="life-span" id="lifeSpan"></p>
         </div>
-      </section>
-      <section class="card">
+      </article>
+      <article class="card">
         <p class="card__title" id="title"></p>
-        <img id="img3" class="card__img" alt="Foto perrito aleatorio" />
+        <div class="card__img--container">
+          <img id="img1" class="card__img" alt="Foto perrito aleatorio" />
+          <button class="fav__button"><i class="fa-solid fa-heart"></i></button>
+        </div>
         <div class="card__info">
           <p class="weight" id="weight"></p>
           <p class="height" id="height"></p>
           <p class="life-span" id="lifeSpan"></p>
         </div>
-      </section>
-    </div>
-    <button id="button">¡Ver más perros!</button>
+      </article>
+    </section>
+    <button id="moreDogs">¡Ver más perros!</button>
+
+    <section class="favDogs">
+      <h2>Favorite Doggies</h2>
+      <article class="card">
+        <p class="card__title" id="title"></p>
+        <div class="card__img--container">
+          <img id="img1" class="card__img" alt="Foto perrito aleatorio" />
+          <button class="fav__button"><i class="fa-solid fa-heart"></i></button>
+        </div>
+        <div class="card__info">
+          <p class="weight" id="weight"></p>
+          <p class="height" id="height"></p>
+          <p class="life-span" id="lifeSpan"></p>
+        </div>
+      </article>
+    </section>
+
     <script src="./main.js"></script>
   </body>
 </html>
