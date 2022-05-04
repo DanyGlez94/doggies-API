@@ -58,11 +58,21 @@
         </div>
       </article>
     </section>
-    <button id="moreDogs">¡Ver más perros!</button>
-    <h2>Favorite Doggies</h2>
-    <section id="favDogs" class="favDogs cards__container">
+
     
+    <button id="moreDogs">¡Ver más perros!<i class="fa-solid fa-paw"></i></button>
+    <section id="uploadingDog">
+      <h2>Sube la foto de tu perro</h2>
+      <form id="uploadingForm">
+        <label for="file" class="custom-file-upload">Selecciona la foto<i class="fa-solid fa-camera"></i></label>
+        <input id="file" type="file" name="file" onchange="previewImage()" />
+        <img id="preview" />
+        <button id="submitDog" type="button" onclick="uploadDogPhoto()">Subir foto de tu perro<i class="fa-solid fa-paper-plane"></i></button>
+      </form>
     </section>
+    <h2>Favorite Doggies</h2>
+    <section id="favDogs" class="favDogs cards__container"></section>
+    
 
     <script src="./main.js"></script>
   </body>

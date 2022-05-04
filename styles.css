@@ -125,8 +125,10 @@ h2 {
   height: 120px;
 }
 
-#moreDogs {
-  width: 275px;
+#moreDogs,
+#submitDog,
+.custom-file-upload {
+  width: 260px;
   height: 50px;
   border-radius: 20px;
   border: none;
@@ -139,6 +141,48 @@ h2 {
   margin: 30px 0;
 }
 
-#moreDogs:hover {
+#moreDogs:hover,
+.custom-file-upload:hover,
+#submitDog:hover {
   opacity: 1;
+}
+
+#moreDogs i,
+#submitDog i,
+.custom-file-upload i {
+  margin-left: 12px;
+}
+
+#submitDog,
+.custom-file-upload {
+  margin: 0;
+}
+
+.custom-file-upload {
+  border-radius: 20px 20px 0 0;
+  background-color: #f0f0f0;
+  color: #000;
+  line-height: 50px;
+}
+
+#submitDog {
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 30px;
+}
+
+#uploadingForm {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#file {
+  display: none;
+}
+
+#preview {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  box-shadow: 0 40px 60px -6px black;
 }

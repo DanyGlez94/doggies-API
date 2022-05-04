@@ -1,9 +1,11 @@
 const API_URL_RANDOM =
-  "https://api.thedogapi.com/v1/images/search?limit=3&api_key=9f1d3cfc-36f4-4461-9275-a27626d6fdec";
+  "https://api.thedogapi.com/v1/images/search?limit=3";
 const API_URL_FAV =
-  "https://api.thedogapi.com/v1/favourites?&api_key=9f1d3cfc-36f4-4461-9275-a27626d6fdec";
+  "https://api.thedogapi.com/v1/favourites";
+const API_URL_UPLOAD =
+  "https://api.thedogapi.com/v1/images/upload";
 const API_URL_DELETE = (id) =>
-  `https://api.thedogapi.com/v1/favourites/${id}?&api_key=9f1d3cfc-36f4-4461-9275-a27626d6fdec`;
+  `https://api.thedogapi.com/v1/favourites/${id}`;
 const spanError = document.getElementById("error");
 const images = document.getElementsByTagName("img");
 const titles = document.getElementsByClassName("card__title");
@@ -75,7 +77,12 @@ async function getRandomDogs() {
 
 async function getFavDogs() {
   try {
-    const res = await fetch(API_URL_FAV);
+    const res = await fetch(API_URL_FAV, {
+      method: 'GET',
+      headers: {
+        'X-API-KEY': '9f1d3cfc-36f4-4461-9275-a27626d6fdec',
+      }
+    });
     const data = await res.json();
     // console.log("Fav Dogs");
     console.log(data);
@@ -119,6 +126,7 @@ async function saveFavDog(id) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        'X-API-KEY': '9f1d3cfc-36f4-4461-9275-a27626d6fdec',
       },
       body: JSON.stringify({
         image_id: id,
@@ -143,6 +151,9 @@ async function deleteFavDog(id) {
   try {
     const res = await fetch(API_URL_DELETE(id), {
       method: "DELETE",
+      headers: {
+        'X-API-KEY': '9f1d3cfc-36f4-4461-9275-a27626d6fdec',
+      }
     });
     const data = await res.json();
     console.log(res);
@@ -156,6 +167,50 @@ async function deleteFavDog(id) {
     }
   } catch (error) {
     spanError.innerText = `${error.message}`;
+  }
+}
+
+const uploadDogPhoto = async () => {
+  try {
+    const form = document.getElementById('uploadingForm');
+    const formData = new FormData(form);
+    console.log(formData.get('file'));
+  
+    const res = await fetch(API_URL_UPLOAD, {
+      method: 'POST',
+      headers: {
+        // 'Content-Type': 'multipart/form-data',
+        'X-API-KEY': '9f1d3cfc-36f4-4461-9275-a27626d6fdec',
+      },
+      body: formData,
+    });
+    const data = await res.json();
+    if (res.status !== 201) {
+      throw new Error(
+        `Error de petición HTTP en Favoritos: ${res.status} ${data.message}`
+      );
+    } else {
+      console.log('Foto subida con éxito! :)');
+      console.log({data});
+      console.log(data.url);
+      saveFavDog(data.id);
+    }
+  } catch (error) {
+    console.log(error.message);
+    spanError.innerText = `${error.message}`;
+  }
+}
+
+const previewImage = () => {
+  const file = document.getElementById("file").files;
+  console.log(file);
+  if (file.length > 0) {
+    const fileReader = new FileReader();
+
+    fileReader.onload = function(e) {
+      document.getElementById("preview").setAttribute("src", e.target.result);
+    };
+    fileReader.readAsDataURL(file[0]);
   }
 }
 
