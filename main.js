@@ -1,5 +1,5 @@
 const API_URL_RANDOM =
-  "https://api.thedogapi.com/v1/images/search?limit=2&api_key=9f1d3cfc-36f4-4461-9275-a27626d6fdec";
+  "https://api.thedogapi.com/v1/images/search?limit=3&api_key=9f1d3cfc-36f4-4461-9275-a27626d6fdec";
 const API_URL_FAV =
   "https://api.thedogapi.com/v1/favourites?&api_key=9f1d3cfc-36f4-4461-9275-a27626d6fdec";
 const API_URL_DELETE = (id) =>
