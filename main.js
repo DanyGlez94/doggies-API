@@ -1,3 +1,7 @@
+const api = axios.create({
+  baseURL: 'https://api.thedogapi.com/v1'
+});
+api.defaults.headers.common['X-API-KEY'] = '9f1d3cfc-36f4-4461-9275-a27626d6fdec';
 const API_URL_RANDOM =
   "https://api.thedogapi.com/v1/images/search?limit=3";
 const API_URL_FAV =
@@ -122,21 +126,25 @@ async function getFavDogs() {
 
 async function saveFavDog(id) {
   try {
-    const res = await fetch(API_URL_FAV, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        'X-API-KEY': '9f1d3cfc-36f4-4461-9275-a27626d6fdec',
-      },
-      body: JSON.stringify({
-        image_id: id,
-      }),
+    const { data, status } = await api.post('favourites', {
+      image_id: id,
     });
-    const data = await res.json();
-    console.log(res);
-    if (res.status !== 200) {
+      
+    // const res = await fetch(API_URL_FAV, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     'X-API-KEY': '9f1d3cfc-36f4-4461-9275-a27626d6fdec',
+    //   },
+    //   body: JSON.stringify({
+    //     image_id: id,
+    //   }),
+    // });
+    // const data = await res.json();
+    // console.log(data);
+    if (status !== 200) {
       throw new Error(
-        `Error de petición HTTP en Favoritos: ${res.status} ${data.message}`
+        `Error de petición HTTP en Favoritos: ${status} ${data.message}`
       );
     } else {
       console.log("Perrito guardado en favoritos");
